@@ -1,0 +1,12 @@
+            <table>
+              <tr>
+                <th></th>
+                <th *ngFor="let domain of domains" class="sumary-table-cell">{{staticDataService.getLanguageNameMappings(domain)}}</th>
+              </tr>
+              <tr *ngFor="let action of actions">
+                <th class="sumary-table-cell">{{actionLabels[action]}}</th>
+                <td *ngFor="let domain of domains" class="sumary-table-cell">
+                  <metric-viewer domain="{{domain}}" action="{{action}}"></metric-viewer>
+                </td>
+              </tr>
+            </table>

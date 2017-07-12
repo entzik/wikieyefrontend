@@ -1,0 +1,26 @@
+.divider {
+    height: 2em;
+    width: 100%;
+}
+.middle-space {
+   /*This fills the remaining space, by using flexbox. 
+   Every toolbar row uses a flexbox row layout.*/
+  flex: 1 1 auto;
+}
+
+.stats-card-type {
+    width: 50em;
+}
+
+.stats-card-container {
+    text-align: center;     
+}
+
+.card-wrapper {
+    width: 55em;
+    display: inline-block;
+}
+
+ .top-word-cell {
+     vertical-align: top;
+ }

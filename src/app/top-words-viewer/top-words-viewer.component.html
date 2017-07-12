@@ -1,0 +1,8 @@
+<div>
+  <span>{{staticDataService.getLanguageNameMappings(domain)}}</span>
+  <table>
+    <tr *ngFor="let word of words">
+      <td>{{word.word}}</td><td>{{word.count}}</td>
+    </tr>
+  </table>
+</div>
