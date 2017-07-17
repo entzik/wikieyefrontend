@@ -23,9 +23,9 @@ export class MetricViewerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.metricService.getMetricsStream()
-      .filter(metric => metric.domain == this.domain && metric.action == this.action)
+      .filter(metric => metric.domain === this.domain && metric.action === this.action)
       .subscribe((metric: Metric) => {
-        if (this.metricValue != metric.secRate) {
+        if (this.metricValue !== metric.secRate) {
           this.flashActive = true;
           Observable.timer(1000).take(1).subscribe( _ => this.flashActive = false);
         }

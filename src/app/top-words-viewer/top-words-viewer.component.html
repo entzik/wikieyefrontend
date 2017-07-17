@@ -1,8 +1,8 @@
 <div>
-  <span>{{staticDataService.getLanguageNameMappings(domain)}}</span>
-  <table>
-    <tr *ngFor="let word of words">
-      <td>{{word.word}}</td><td>{{word.count}}</td>
+  <span><strong>{{staticDataService.getLanguageNameMappings(domain)}}</strong></span>
+  <table width="100%">
+    <tr *ngFor="let word of words; let i=index">
+      <td><span  [style.color]="flashActive[i] ? 'red' : 'white'">{{word.word}}</span></td><td><span [style.color]="flashActive[i] ? 'red' : 'white'">{{word.count}}</span></td>
     </tr>
   </table>
 </div>

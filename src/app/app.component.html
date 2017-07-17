@@ -4,7 +4,7 @@
   </md-sidenav>
   <div class="main-content">
     <md-toolbar>
-      <span>WikiLens</span>
+      <span class="title-span">Wiki Eye</span><md-icon>visibility</md-icon>
       <span class="middle-space">&nbsp;</span>
       <span>
             <button md-mini-fab class="example-fab" (click)="sidenav.toggle()">
@@ -43,6 +43,8 @@
       </div>
     </div>
 
+    <div class="divider"></div>
+
     <div class="stats-card-container">
       <div class="card-wrapper">
         <md-card class="stats-card-type">
@@ -65,6 +67,9 @@
                 <td class="top-word-cell">
                   <top-words domain="it"></top-words>
                 </td>
+              </tr>
+              <tr><td colspan="4">&nbsp;</td></tr>
+              <tr>
                 <td class="top-word-cell">
                   <top-words domain="es"></top-words>
                 </td>
