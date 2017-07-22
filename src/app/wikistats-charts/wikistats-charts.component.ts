@@ -41,7 +41,8 @@ export class WikistatsChartsComponent implements OnInit, OnDestroy {
         });
       });
 
-      this.chart = this.chartMaker.makeChart("chartdiv", this.buildChart());
+      // this.chart = this.chartMaker.makeChart("chartdiv", this.buildChart());
+      this.chart = this.chartMaker.makeChart("chartdiv", this.buildBarChart());
       this.metricService.getMetricsStream()
         .filter(metric => metric.action === 'update')
         .subscribe((metric: Metric) => {
@@ -70,43 +71,94 @@ export class WikistatsChartsComponent implements OnInit, OnDestroy {
     });
   }
 
-  private buildChart(): any {
+  private buildBarChart() : any {
     return {
       "type": "serial",
-      "theme": "dark",
-      "marginRight": 70,
-      "dataProvider": this.data,
-      "color": "#ffffff",
-      "valueAxes": [{
-        "axisAlpha": 0,
-        "position": "left",
-        "title": "Language",
-        "axisColor": "#ffffff"
-      }],
-      "startDuration": 1,
-      "graphs": [{
-        "balloonText": "<b>[[category]]: [[value]]</b>",
-        "fillColorsField": "color",
-        "fillAlphas": 0.9,
-        "lineAlpha": 0.2,
-        "type": "column",
-        "valueField": "updates",
-        "fillColors": "red",
-      }],
-      "chartCursor": {
-        "categoryBalloonEnabled": false,
-        "cursorAlpha": 0,
-        "zoomable": false
-      },
       "categoryField": "language",
+      "startDuration": 1,
+      "color": "#FFFFFF",
+      "theme": "black",
       "categoryAxis": {
-        "gridPosition": "start",
-        "labelRotation": 45
+        "gridPosition": "start"
       },
-      "export": {
-        "enabled": true
-      }
-    }
+      "trendLines": [],
+      "graphs": [
+        {
+          "balloonText": "[[title]] of [[category]]:[[value]]",
+          "fillAlphas": 1,
+          "id": "AmGraph-1",
+          "fillColors": "#FF2700",
+          "title": "graph 1",
+          "type": "column",
+          "valueField": "updates"
+        }
+      ],
+      "guides": [],
+      "valueAxes": [
+        {
+          "id": "ValueAxis-1",
+          "title": "Axis title"
+        }
+      ],
+      "allLabels": [],
+      "balloon": {},
+      // "legend": {
+      //   "enabled": true,
+      //   "useGraphSettings": true
+      // },
+      // "titles": [
+      //   {
+      //     "id": "Title-1",
+      //     "size": 15,
+      //     "text": "Chart Title"
+      //   }
+      // ],
+      "dataProvider": this.data
+    };
   }
 
+  // private buildPieChart() : any {
+  //   return {
+  //     "type": "pie",
+  //     "labelText": "",
+  //     "startDuration": 0,
+  //     "theme": "dark",
+  //     "addClassNames": true,
+  //     // "legend":{
+  //     //   "position":"right",
+  //     //   "marginRight":100,
+  //     //   "autoMargins":false
+  //     // },
+  //     "innerRadius": "60%",
+  //     "defs": {
+  //       "filter": [{
+  //         "id": "shadow",
+  //         "width": "200%",
+  //         "height": "200%",
+  //         "feOffset": {
+  //           "result": "offOut",
+  //           "in": "SourceAlpha",
+  //           "dx": 0,
+  //           "dy": 0
+  //         },
+  //         "feGaussianBlur": {
+  //           "result": "blurOut",
+  //           "in": "offOut",
+  //           "stdDeviation": 5
+  //         },
+  //         "feBlend": {
+  //           "in": "SourceGraphic",
+  //           "in2": "blurOut",
+  //           "mode": "normal"
+  //         }
+  //       }]
+  //     },
+  //     "dataProvider": this.data,
+  //     "valueField": "updates",
+  //     "titleField": "language",
+  //     "export": {
+  //       "enabled": true
+  //     }
+  //   };
+  // }
 }

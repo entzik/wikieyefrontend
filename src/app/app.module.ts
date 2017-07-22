@@ -1,22 +1,37 @@
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {RouterModule, Routes} from '@angular/router';
 
 import {MaterialModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout'
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
-import  { MetricService } from './metric-service'
-import { StaticDataService } from './static-data'
-import { MetricViewerComponent } from './metric-viewer/metric-viewer.component';
-import { WikistatsChartsComponent } from './wikistats-charts/wikistats-charts.component'  
+import {MetricService} from './metric-service'
+import {StaticDataService} from './static-data'
+import {MetricViewerComponent} from './metric-viewer/metric-viewer.component';
+import {WikistatsChartsComponent} from './wikistats-charts/wikistats-charts.component'
 
-import { AmChartsModule } from '@amcharts/amcharts3-angular';
-import { ChangeRateTableComponent } from './change-rate-table/change-rate-table.component';
-import { TopWordsViewerComponent } from './top-words-viewer/top-words-viewer.component';
+import {AmChartsModule} from '@amcharts/amcharts3-angular';
+import {ChangeRateTableComponent} from './change-rate-table/change-rate-table.component';
+import {TopWordsViewerComponent} from './top-words-viewer/top-words-viewer.component';
+import {ActivityRateComponent} from './activity-rate/activity-rate.component';
+import {WordsAnalysisComponent} from './words-analysis/words-analysis.component';
+
+const appRoutes: Routes = [
+  {path: 'rt-activity', component: ActivityRateComponent},
+  {path: 'rt-top-words', component: WordsAnalysisComponent},
+  {
+    path: '',
+    redirectTo: '/rt-activity',
+    pathMatch: 'full'
+  },
+  {path: '**', component: ActivityRateComponent}
+];
+
 
 @NgModule({
   declarations: [
@@ -24,7 +39,9 @@ import { TopWordsViewerComponent } from './top-words-viewer/top-words-viewer.com
     MetricViewerComponent,
     WikistatsChartsComponent,
     ChangeRateTableComponent,
-    TopWordsViewerComponent
+    TopWordsViewerComponent,
+    ActivityRateComponent,
+    WordsAnalysisComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +50,10 @@ import { TopWordsViewerComponent } from './top-words-viewer/top-words-viewer.com
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    AmChartsModule
+    AmChartsModule,
+    RouterModule.forRoot(
+      appRoutes
+    )
   ],
   providers: [
     MetricService,
@@ -41,4 +61,5 @@ import { TopWordsViewerComponent } from './top-words-viewer/top-words-viewer.com
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

@@ -9,3 +9,27 @@ div.mat-card-header-text {
   margin: 0 8px;
   width: 100%;
 }
+
+.stats-card-type {
+  width: 50em;
+}
+
+.stats-card-container {
+  text-align: center;
+}
+
+.card-wrapper {
+  width: 55em;
+  display: inline-block;
+}
+
+.divider {
+  height: 2em;
+  width: 100%;
+}
+
+.sumary-table-cell {
+  min-width: 5em;
+  text-align: center;
+  border-bottom: 1px darkgreen solid;
+}

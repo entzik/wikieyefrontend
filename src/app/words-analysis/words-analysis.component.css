@@ -1,0 +1,11 @@
+.top-words-table {
+  width: 100%;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.top-word-cell {
+  vertical-align: top;
+  width: 25%;
+  text-align: center;
+}

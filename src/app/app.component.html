@@ -1,93 +1,21 @@
 <md-sidenav-container>
-  <md-sidenav #sidenav mode="push" opened="false">
-    <h2>Data</h2>
+  <md-sidenav #sidenav mode="side" opened="true">
+    <h3>Live Data</h3>
+    <div><a routerLink="/rt-activity">Update Rates</a></div>
+    <div><a routerLink="/rt-top-words">Top Words</a></div>
   </md-sidenav>
   <div class="main-content">
     <md-toolbar>
       <span class="title-span">Wiki Eye</span><md-icon>visibility</md-icon>
       <span class="middle-space">&nbsp;</span>
       <span>
-            <button md-mini-fab class="example-fab" (click)="sidenav.toggle()">
-            <md-icon>check circle</md-icon>
-            </button>
+            <!--<button md-mini-fab class="example-fab" (click)="sidenav.toggle()">-->
+            <!--<md-icon>check circle</md-icon>-->
+            <!--</button>-->
       </span>
     </md-toolbar>
 
-    <div class="stats-card-container">
-      <div class="card-wrapper">
-        <md-card class="stats-card-type">
-          <md-card-header>
-            <md-card-title><span class="md-headline">Real Time Event Rate</span></md-card-title>
-            <md-card-subtitle>events / second</md-card-subtitle>
-          </md-card-header>
-          <md-card-content>
-            <change-rate-table></change-rate-table>
-          </md-card-content>
-        </md-card>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="stats-card-container">
-      <div class="card-wrapper">
-        <md-card class="stats-card-type">
-          <md-card-header>
-            <md-card-title><span class="md-headline">Page Updated Rate</span></md-card-title>
-            <md-card-subtitle>events / second</md-card-subtitle>
-          </md-card-header>
-          <md-card-content>
-            <wikistats-chart></wikistats-chart>
-          </md-card-content>
-        </md-card>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="stats-card-container">
-      <div class="card-wrapper">
-        <md-card class="stats-card-type">
-          <md-card-header>
-            <md-card-title><span class="md-headline">Top Words</span></md-card-title>
-            <md-card-subtitle>in targeted page titles, over the last hour</md-card-subtitle>
-          </md-card-header>
-          <md-card-content>
-            <table>
-              <tr>
-                <td class="top-word-cell">
-                  <top-words domain="en"></top-words>
-                </td>
-                <td class="top-word-cell">
-                  <top-words domain="fr"></top-words>
-                </td>
-                <td class="top-word-cell">
-                  <top-words domain="de"></top-words>
-                </td>
-                <td class="top-word-cell">
-                  <top-words domain="it"></top-words>
-                </td>
-              </tr>
-              <tr><td colspan="4">&nbsp;</td></tr>
-              <tr>
-                <td class="top-word-cell">
-                  <top-words domain="es"></top-words>
-                </td>
-                <td class="top-word-cell">
-                  <top-words domain="pt"></top-words>
-                </td>
-                <td class="top-word-cell">
-                  <top-words domain="nl"></top-words>
-                </td>
-                <td class="top-word-cell">
-                  <top-words domain="ja"></top-words>
-                </td>
-              </tr>
-            </table>
-          </md-card-content>
-        </md-card>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
 
   </div>
 </md-sidenav-container>
