@@ -20,6 +20,7 @@ import {ChangeRateTableComponent} from './change-rate-table/change-rate-table.co
 import {TopWordsViewerComponent} from './top-words-viewer/top-words-viewer.component';
 import {ActivityRateComponent} from './activity-rate/activity-rate.component';
 import {WordsAnalysisComponent} from './words-analysis/words-analysis.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
 const appRoutes: Routes = [
   {path: 'rt-activity', component: ActivityRateComponent},
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     ChangeRateTableComponent,
     TopWordsViewerComponent,
     ActivityRateComponent,
-    WordsAnalysisComponent
+    WordsAnalysisComponent,
+    PageHeaderComponent
   ],
   imports: [
     BrowserModule,

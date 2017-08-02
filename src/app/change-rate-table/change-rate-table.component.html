@@ -1,13 +1,28 @@
-<table>
-  <tr>
-    <th></th>
-    <th *ngFor="let domain of domains" class="sumary-table-cell">{{staticDataService.getLanguageNameMappings(domain)}}
-    </th>
-  </tr>
-  <tr *ngFor="let action of actions">
-    <th class="sumary-table-cell">{{actionLabels[action]}}</th>
-    <td *ngFor="let domain of domains" class="sumary-table-cell">
-      <metric-viewer domain="{{domain}}" action="{{action}}"></metric-viewer>
-    </td>
-  </tr>
-</table>
+<div class="divider"></div>
+<div class="stats-card-container">
+  <div class="card-wrapper">
+    <md-card-content>
+      <md-card class="stats-card-type">
+        <md-card-header>
+          <md-card-title><span class="md-headline">Event Type</span></md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <table>
+            <tr>
+              <th></th>
+              <th *ngFor="let domain of domains" class="sumary-table-cell">
+                {{staticDataService.getLanguageNameMappings(domain)}}
+              </th>
+            </tr>
+            <tr *ngFor="let action of actions">
+              <th class="sumary-table-cell">{{actionLabels[action]}}</th>
+              <td *ngFor="let domain of domains" class="sumary-table-cell">
+                <metric-viewer domain="{{domain}}" action="{{action}}"></metric-viewer>
+              </td>
+            </tr>
+          </table>
+        </md-card-content>
+      </md-card>
+    </md-card-content>
+  </div>
+</div>
